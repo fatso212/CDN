@@ -1,0 +1,16 @@
+
+            function addEvent(event, target, func) {
+                target.addEventListener(event, function () {
+                    func()
+                })
+            }
+
+            function initListeners() {
+                for (element in elements) {
+                    for (event in elements[element].events) {
+                        elements[element].events[event].forEach(function (item) {
+                            addEvent(event, elements[element].selector, item)
+                        })
+                    }
+                }
+            }
